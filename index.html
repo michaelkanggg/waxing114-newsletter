@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>왁싱114 뉴스레터 | 2026년 2월호</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f0f0f0;
+      padding: 40px 20px 60px;
+      color: #1a1a1a;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── 헤더 카드 ── */
+    .card-header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      border-radius: 20px;
+      padding: 44px 40px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .card-header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 150px; height: 150px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .card-header .label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #a8d8ea;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .card-header h1 {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .card-header h1 span { color: #a8d8ea; }
+    .card-header p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+    }
+
+    /* ── 일반 뉴스 카드 ── */
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 30px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-3px); }
+
+    .card-number {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.04);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .tag-waxing  { background: #e8f4fd; color: #1a6fa8; }
+    .tag-market  { background: #fff3e0; color: #e65100; }
+    .tag-grooming{ background: #f3e5f5; color: #6a1b9a; }
+    .tag-beauty  { background: #e8f5e9; color: #2e7d32; }
+    .tag-economy { background: #fce4ec; color: #880e4f; }
+    .tag-tech    { background: #e3f2fd; color: #0d47a1; }
+    .tag-selfcare{ background: #f9fbe7; color: #558b2f; }
+
+    .card-emoji { font-size: 28px; margin-bottom: 10px; display: block; }
+
+    .card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      color: #111;
+      letter-spacing: -0.3px;
+    }
+    .card p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: #444;
+      font-weight: 400;
+    }
+    .card p strong { color: #111; font-weight: 700; }
+    .card p a { color: #1a6fa8; font-weight: 600; text-decoration: none; border-bottom: 1px solid #a8d8ea; }
+    .card p a:hover { color: #0d47a1; border-bottom-color: #0d47a1; }
+
+    .card-divider {
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* 색상 별 accent */
+    .accent-blue   .card-divider { background: #1a6fa8; }
+    .accent-orange .card-divider { background: #e65100; }
+    .accent-purple .card-divider { background: #6a1b9a; }
+    .accent-green  .card-divider { background: #2e7d32; }
+    .accent-red    .card-divider { background: #880e4f; }
+    .accent-navy   .card-divider { background: #0d47a1; }
+    .accent-lime   .card-divider { background: #558b2f; }
+
+    /* ── 인사이트 카드 ── */
+    .card-insight {
+      background: linear-gradient(135deg, #0f3460, #533483);
+      border-radius: 18px;
+      padding: 36px 32px;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(15,52,96,0.3);
+    }
+    .card-insight .insight-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c9d6ff;
+      margin-bottom: 18px;
+    }
+    .card-insight h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .card-insight p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 20px;
+    }
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .keyword-chip {
+      background: rgba(255,255,255,0.15);
+      color: #c9d6ff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 13px;
+      border-radius: 20px;
+    }
+    .card-insight .sig {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    /* ── 출처 카드 ── */
+    .card-sources {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 14px;
+      padding: 22px 28px;
+    }
+    .card-sources h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 12px;
+    }
+    .card-sources ul { list-style: none; }
+    .card-sources ul li {
+      font-size: 12px;
+      color: #666;
+      padding: 4px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .card-sources ul li:last-child { border-bottom: none; }
+    .card-sources a { color: #1a6fa8; text-decoration: none; }
+    .card-sources a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .card { padding: 24px 20px; }
+      .card-header { padding: 36px 24px; }
+      .card-header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 헤더 -->
+  <div class="card-header">
+    <div class="label">Monthly Newsletter</div>
+    <h1>왁싱114 뉴스레터<br><span>2026년 2월호</span></h1>
+    <p>이달의 왁싱·피부미용 업계 핫이슈</p>
+  </div>
+
+  <!-- 카드 1 -->
+  <div class="card accent-blue">
+    <div class="card-number">01</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">🪒</span>
+    <span class="card-tag tag-waxing">왁싱 시장</span>
+    <h2>글로벌 레이저·왁싱 제모 시장, 폭발적 성장 중</h2>
+    <p>글로벌 레이저 제모 시장이 2025년 <strong>14억 달러</strong>에서 2032년 <strong>46억 달러</strong>로 성장할 전망입니다(연평균 18.3%). 아시아 태평양 지역이 전 세계 시장의 39%를 점유하며 1위를 달리고 있어요. 제모에 대한 소비자 인식이 '위생·자기관리'의 핵심으로 자리잡으면서 왁싱샵을 포함한 제모 서비스 전반의 수요가 구조적으로 확대되고 있습니다.</p>
+  </div>
+
+  <!-- 카드 2 -->
+  <div class="card accent-orange">
+    <div class="card-number">02</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">💰</span>
+    <span class="card-tag tag-market">소상공인 지원</span>
+    <h2>소상공인 경영안정 바우처 25만 원, 2월 신청 시작</h2>
+    <p>미용업 포함 연매출 <strong>1억 400만 원 미만 소상공인</strong>이라면 누구나 신청 가능합니다. 전기료·4대 보험·주유비에 사용 가능한 포인트 <strong>25만 원</strong>이 지급됩니다. 올해는 통신비가 빠지고 차량 연료비가 새로 추가됐어요. 예산 소진 시 조기 마감되니 <a href="https://www.sbiz24.kr" target="_blank"><strong>소상공인24 바로가기 →</strong></a>에서 빠르게 신청하세요.</p>
+  </div>
+
+  <!-- 카드 3 -->
+  <div class="card accent-purple">
+    <div class="card-number">03</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">🧔</span>
+    <span class="card-tag tag-grooming">남성 그루밍</span>
+    <h2>남성 그루밍 시장, 올리브영 남성 구매액 3년간 연 20% 성장</h2>
+    <p>외모를 적극적으로 가꾸는 남성 소비자가 빠르게 늘고 있습니다. 남성의 <strong>89%</strong>가 피부·체모 관련 제품 구매 결정권을 직접 행사하고 있으며, <strong>3040 남성</strong>을 중심으로 피부 관리와 체모 관리를 루틴화하는 흐름이 뚜렷합니다. 남성 왁싱 서비스 수요 확대의 기반이 되는 변화입니다.</p>
+  </div>
+
+  <!-- 카드 4 -->
+  <div class="card accent-green">
+    <div class="card-number">04</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">🧴</span>
+    <span class="card-tag tag-beauty">뷰티 트렌드</span>
+    <h2>2026 소비자 키워드: '안심 진정 뷰티' — 성분이 브랜드를 이긴다</h2>
+    <p>화해 데이터 분석 결과, 국내 피부 진단 이용자의 <strong>87%</strong>가 민감성 피부로 확인됐습니다. 소비자들은 이제 브랜드보다 성분을 먼저 따집니다. 왁싱 후 사용하는 진정·재생 제품의 성분 투명성이 고객 재방문율과 직접 연결되는 시대입니다. 샵에서 사용하는 왁스와 애프터케어 제품의 <strong>성분 안내를 강화</strong>해보세요.</p>
+  </div>
+
+  <!-- 카드 5 -->
+  <div class="card accent-red">
+    <div class="card-number">05</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">📉</span>
+    <span class="card-tag tag-economy">경영 환경</span>
+    <h2>미용업 소상공인 67.7%, 월 영업이익 300만 원 미만</h2>
+    <p>소상공인연합회 실태조사에서 이·미용업의 <strong>67.7%</strong>가 월 300만 원도 못 버는 것으로 나타났습니다. 내수 부진(<strong>77.7%</strong>)이 가장 큰 위협 요인이에요. 고정비 절감과 차별화된 서비스 경험이 생존의 핵심 전략으로 더욱 중요해지는 시점입니다.</p>
+  </div>
+
+  <!-- 카드 6 -->
+  <div class="card accent-navy">
+    <div class="card-number">06</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">🤖</span>
+    <span class="card-tag tag-tech">테크 트렌드</span>
+    <h2>AI 피부 진단 서비스, 일상이 되다</h2>
+    <p>아모레퍼시픽의 AI 피부 분석 기술 'Skinsight™'이 <strong>CES 2026 혁신상</strong>을 수상했습니다. 소비자 <strong>89%</strong>가 서비스 이용 전 온라인 탐색 단계를 거치는 만큼, 왁싱샵도 SNS·블로그·카페를 통한 정보 제공과 리뷰 관리가 신규 고객 유입의 핵심 채널이 됐습니다.</p>
+  </div>
+
+  <!-- 카드 7 -->
+  <div class="card accent-lime">
+    <div class="card-number">07</div>
+    <div class="card-divider"></div>
+    <span class="card-emoji">🌿</span>
+    <span class="card-tag tag-selfcare">시장 변화</span>
+    <h2>셀프 제모 기기 확산 — 위협인가, 기회인가?</h2>
+    <p>가정용 레이저 제모·IPL 기기 시장이 빠르게 커지고 있습니다. 단, 전문 왁싱샵은 <strong>'즉각적인 결과', '넓은 면적의 효율', '전문가 케어 경험'</strong>이라는 차별점이 여전히 강합니다. 셀프 기기로 시작했다가 왁싱샵으로 전환하는 고객도 늘고 있어, 체험 프로모션이나 패키지 상품으로 진입장벽을 낮추는 전략이 효과적입니다.</p>
+  </div>
+
+  <!-- 인사이트 카드 -->
+  <div class="card-insight">
+    <div class="insight-label">💡 왁싱114 인사이트</div>
+    <h2>이달의 뉴스를 종합하면</h2>
+    <p>왁싱 업계는 <strong>구조적 성장과 현실적 경영 압박이 동시에 진행되는 국면</strong>에 있습니다. 제모 시장 자체는 글로벌로도, 국내 남성 시장으로도 확실히 커지고 있어요. 그러나 내수 소비 부진과 경쟁 심화 속에서 살아남으려면 <strong>성분 투명성·애프터케어 강화·온라인 정보 관리</strong>라는 세 가지 축이 필수입니다. 소상공인 경영안정 바우처 신청처럼 놓치기 쉬운 지원 정책도 꼼꼼히 챙기는 것이 실질적인 경영 체력을 키우는 방법입니다.</p>
+    <div class="keywords">
+      <span class="keyword-chip"># 제모시장성장</span>
+      <span class="keyword-chip"># 남성그루밍</span>
+      <span class="keyword-chip"># 안심성분</span>
+      <span class="keyword-chip"># 셀프제모대응</span>
+      <span class="keyword-chip"># 소상공인지원</span>
+    </div>
+    <div class="sig">— 왁싱114 뉴스레터팀</div>
+  </div>
+
+  <!-- 출처 -->
+  <div class="card-sources">
+    <h3>Sources</h3>
+    <ul>
+      <li><a href="https://www.fortunebusinessinsights.com/laser-hair-removal-market-103477" target="_blank">글로벌 레이저 제모 시장 전망 — Fortune Business Insights</a></li>
+      <li><a href="https://voucher.sbiz24.kr" target="_blank">소상공인 경영안정 바우처 신청 — 소상공인24</a></li>
+      <li><a href="https://www.cosinkorea.com/news/article.html?no=47470" target="_blank">남성 화장품 시장 키워드 부상 — 코스인코리아</a></li>
+      <li><a href="https://business.hwahae.co.kr/insight/trendreport-2026-summary/" target="_blank">2026 뷰티 트렌드 총정리 — Hwahae Business</a></li>
+      <li><a href="https://www.cmn.co.kr/sub/news/news_view.asp?news_idx=48942&cls_cd=" target="_blank">미용업 소상공인 경기 현황 — CMN</a></li>
+      <li><a href="https://www.seattlen.com/bbs/board.php?bo_table=focus&wr_id=23736" target="_blank">CES 2026 K-뷰티 혁신상 — 시애틀N</a></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
