@@ -1,172 +1,216 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>뷰티114 뉴스레터 | 2026년 4월호</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans KR', sans-serif; background: #f0f0f0; padding: 40px 20px 60px; color: #1a1a1a; }
-    .container { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>뷰티114 뉴스레터 - 2026년 5월호</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #f0f0f0; padding: 40px 20px 60px; color: #1a1a1a; line-height: 1.6; }
+  .container { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
 
-    .card-header { background: linear-gradient(135deg, #2d0a1e 0%, #6b2048 60%, #a84d7a 100%); border-radius: 16px; padding: 28px 32px; color: #fff; text-align: center; position: relative; overflow: hidden; }
-    .card-header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; }
-    .card-header::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; }
-    .card-header .label { display: inline-block; background: rgba(255,255,255,0.15); color: #f9c8d9; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; }
-    .card-header h1 { font-size: 26px; font-weight: 900; line-height: 1.3; margin-bottom: 6px; letter-spacing: -0.5px; }
-    .card-header h1 span { color: #f9c8d9; }
-    .card-header p { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 300; }
+  /* 헤더 */
+  .header { background: linear-gradient(135deg, #2d0a1e 0%, #6b2048 60%, #a84d7a 100%); border-radius: 20px; padding: 48px 36px; color: #fff; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(249, 200, 217, 0.12); border-radius: 50%; }
+  .header::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; background: rgba(249, 200, 217, 0.08); border-radius: 50%; }
+  .header .label { display: inline-block; font-size: 11px; letter-spacing: 3px; font-weight: 600; padding: 6px 14px; background: rgba(249, 200, 217, 0.18); border: 1px solid rgba(249, 200, 217, 0.4); border-radius: 20px; color: #f9c8d9; margin-bottom: 18px; position: relative; z-index: 1; }
+  .header h1 { font-size: 32px; font-weight: 800; line-height: 1.25; margin-bottom: 14px; position: relative; z-index: 1; letter-spacing: -0.5px; }
+  .header h1 span { color: #f9c8d9; font-weight: 700; font-size: 26px; }
+  .header p { font-size: 14px; color: rgba(255,255,255,0.85); position: relative; z-index: 1; line-height: 1.6; }
 
-    .card { background: #fff; border-radius: 14px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: relative; overflow: hidden; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-2px); }
-    .card-number { position: absolute; top: 14px; right: 18px; font-size: 36px; font-weight: 900; color: rgba(0,0,0,0.04); line-height: 1; user-select: none; }
-    .card-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-bottom: 7px; }
+  /* 카드 공통 */
+  .card { background: #fff; border-radius: 16px; padding: 28px 28px 26px; box-shadow: 0 2px 14px rgba(0,0,0,0.04); border: 1px solid #ececec; }
+  .card-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 14px; letter-spacing: 0.5px; margin-bottom: 14px; }
+  .tag-hair { background: #fff8e1; color: #f57f17; }
+  .tag-makeup { background: #fce4ec; color: #c2185b; }
+  .tag-nail { background: #fff3e0; color: #e65100; }
+  .tag-lash { background: #f3e5f5; color: #7b1fa2; }
+  .tag-waxing { background: #e8f4fd; color: #1565c0; }
+  .tag-skin { background: #e8f5e9; color: #2e7d32; }
+  .tag-gov { background: #e8eaf6; color: #283593; }
 
-    .tag-hair   { background: #fff8e1; color: #f57f17; }
-    .tag-makeup { background: #fce4ec; color: #c2185b; }
-    .tag-nail   { background: #fff3e0; color: #e65100; }
-    .tag-lash   { background: #f3e5f5; color: #7b1fa2; }
-    .tag-waxing { background: #e8f4fd; color: #1565c0; }
-    .tag-skin   { background: #e8f5e9; color: #2e7d32; }
-    .tag-gov    { background: #e8eaf6; color: #283593; }
+  .card h2 { font-size: 21px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; color: #1a1a1a; }
+  .card h2 .emoji { margin-right: 6px; }
+  .card .subtitle { font-size: 13px; color: #888; margin-bottom: 18px; font-weight: 500; }
+  .card p { font-size: 14.5px; color: #333; margin-bottom: 12px; }
+  .card p strong { font-weight: 700; color: #111; }
+  .card .accent { padding: 14px 16px; border-radius: 10px; margin-top: 14px; font-size: 13.5px; line-height: 1.65; }
+  .accent-amber { background: #fffbf2; border-left: 3px solid #f57f17; color: #5d3c00; }
+  .accent-rose { background: #fff5f8; border-left: 3px solid #c2185b; color: #5e0e2c; }
+  .accent-coral { background: #fff7ee; border-left: 3px solid #e65100; color: #6b2700; }
+  .accent-purple { background: #faf3fc; border-left: 3px solid #7b1fa2; color: #3e0a52; }
+  .accent-blue { background: #eef7ff; border-left: 3px solid #1565c0; color: #0a3360; }
+  .accent-green { background: #f1faf2; border-left: 3px solid #2e7d32; color: #133d18; }
+  .accent-indigo { background: #f1f3fb; border-left: 3px solid #283593; color: #11173f; }
 
-    .card-emoji { font-size: 22px; margin-bottom: 6px; display: block; }
-    .card h2 { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: #111; letter-spacing: -0.3px; }
-    .card p { font-size: 13px; line-height: 1.7; color: #444; }
-    .card p strong { color: #111; font-weight: 700; }
-    .card p a { color: #c2185b; font-weight: 600; text-decoration: none; border-bottom: 1px solid #f48fb1; }
-    .card p a:hover { color: #880e4f; }
-    .card-divider { height: 3px; border-radius: 2px; margin-bottom: 12px; }
+  .card ul { padding-left: 20px; margin: 8px 0 4px; }
+  .card li { font-size: 14px; color: #333; margin-bottom: 6px; line-height: 1.6; }
 
-    .accent-amber  .card-divider { background: #f57f17; }
-    .accent-rose   .card-divider { background: #c2185b; }
-    .accent-coral  .card-divider { background: #e65100; }
-    .accent-purple .card-divider { background: #7b1fa2; }
-    .accent-blue   .card-divider { background: #1565c0; }
-    .accent-green  .card-divider { background: #2e7d32; }
-    .accent-indigo .card-divider { background: #283593; }
+  /* 인사이트 카드 */
+  .card-insight { background: linear-gradient(135deg, #6b2048, #9c3d7a, #c4688e); color: #fff; border: none; }
+  .card-insight h2 { color: #fff; }
+  .card-insight .subtitle { color: rgba(255,255,255,0.85); }
+  .card-insight p { color: rgba(255,255,255,0.95); }
+  .card-insight .insight-box { background: rgba(255,255,255,0.12); border-radius: 12px; padding: 18px 20px; margin-top: 14px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); }
+  .card-insight .insight-box h3 { font-size: 14px; font-weight: 700; color: #f9c8d9; margin-bottom: 8px; letter-spacing: 0.3px; }
+  .card-insight .insight-box p { font-size: 13.5px; color: rgba(255,255,255,0.95); margin-bottom: 0; line-height: 1.65; }
 
-    .card-insight { background: linear-gradient(135deg, #6b2048, #9c3d7a, #c4688e); border-radius: 14px; padding: 22px 24px; color: #fff; box-shadow: 0 4px 16px rgba(107,32,72,0.3); }
-    .card-insight .insight-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #f9c8d9; margin-bottom: 10px; }
-    .card-insight h2 { font-size: 17px; font-weight: 800; margin-bottom: 10px; color: #fff; line-height: 1.4; }
-    .card-insight p { font-size: 13px; line-height: 1.75; color: rgba(255,255,255,0.85); margin-bottom: 14px; }
-    .keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-    .keyword-chip { background: rgba(255,255,255,0.15); color: #f9c8d9; font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 20px; }
-    .card-insight .sig { font-size: 11px; color: rgba(255,255,255,0.45); font-weight: 300; text-align: right; margin-top: 4px; }
+  /* 출처 카드 */
+  .card-sources { background: #fafafa; border: 1px dashed #d0d0d0; }
+  .card-sources h2 { font-size: 16px; color: #555; margin-bottom: 14px; }
+  .card-sources ul { list-style: none; padding-left: 0; }
+  .card-sources li { font-size: 12.5px; color: #666; margin-bottom: 8px; padding-left: 14px; position: relative; line-height: 1.5; }
+  .card-sources li::before { content: '·'; position: absolute; left: 0; font-weight: 700; color: #a84d7a; }
+  .card-sources a { color: #6b2048; text-decoration: none; word-break: break-all; }
+  .card-sources a:hover { text-decoration: underline; }
 
-    .card-sources { background: #fafafa; border: 1px solid #e8e8e8; border-radius: 12px; padding: 14px 20px; }
-    .card-sources h3 { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 8px; }
-    .card-sources ul { list-style: none; }
-    .card-sources ul li { font-size: 12px; color: #666; padding: 3px 0; border-bottom: 1px solid #f0f0f0; }
-    .card-sources ul li:last-child { border-bottom: none; }
-    .card-sources a { color: #c2185b; text-decoration: none; }
-    .card-sources a:hover { text-decoration: underline; }
-
-    @media (max-width: 480px) {
-      .card { padding: 16px 18px; }
-      .card-header { padding: 22px 20px; }
-      .card-header h1 { font-size: 22px; }
-    }
-  </style>
+  /* 푸터 */
+  .footer { text-align: center; padding: 30px 20px 0; color: #999; font-size: 12px; line-height: 1.7; }
+  .footer strong { color: #6b2048; font-weight: 700; }
+</style>
 </head>
 <body>
 <div class="container">
 
-  <div class="card-header">
+  <!-- 헤더 -->
+  <div class="header">
     <div class="label">Monthly Newsletter</div>
-    <h1>뷰티114 뉴스레터<br><span>2026년 4월호</span></h1>
+    <h1>뷰티114 뉴스레터<br><span>2026년 5월호</span></h1>
     <p>이달의 헤어·메이크업·네일·피부·속눈썹·왁싱 업계 핫이슈</p>
   </div>
 
-  <div class="card accent-amber">
-    <div class="card-number">01</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">💇</span>
-    <span class="card-tag tag-hair">헤어 트렌드</span>
-    <h2>봄 헤어 키워드는 '내 모발 결대로' — 두피케어 전성시대</h2>
-    <p>2026년 봄 헤어 트렌드의 핵심은 <strong>모발 본연의 텍스처와 자연스러운 움직임</strong>을 살리는 것입니다. 과한 스타일링보다 윤기와 가벼움을 강조하는 방향으로 이동 중이며, '두피도 피부'라는 인식이 확산되며 <strong>두피 에센스·스케일링 시술 예약이 봄철 급증</strong>하고 있어요. 두피 관리 메뉴를 전면에 내세우고 헤어 케어 루틴 상담 서비스를 강화할 시점입니다.</p>
-  </div>
-
-  <div class="card accent-rose">
-    <div class="card-number">02</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">💄</span>
-    <span class="card-tag tag-makeup">메이크업 트렌드</span>
-    <h2>2026 메이크업 = 글로우 스킨 + 개성 표현 — '지적인 뷰티' 시대</h2>
-    <p>베이스 메이크업은 인위적 광택 대신 <strong>수분감·피부 결을 살린 '속광' 스타일</strong>이 주류로 자리잡았습니다. 동시에 '내추럴=기본'이라는 공식이 무너지며 개성과 창의성을 드러내는 <strong>'지적인 뷰티(Intelligent Beauty)'</strong>가 떠오르고 있어요. 왁싱·피부관리로 베이스를 만들어주는 샵의 역할이 메이크업 완성도에 직접 연결된다는 인식을 적극 알려보세요.</p>
-  </div>
-
-  <div class="card accent-coral">
-    <div class="card-number">03</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">💅</span>
-    <span class="card-tag tag-nail">네일아트 트렌드</span>
-    <h2>봄 네일 컬러는 테라코타·복숭아·쉬머 화이트 3강</h2>
-    <p>2026년 봄·여름 네일 트렌드는 <strong>테라코타, 피치(복숭아), 쉬머 화이트</strong> 3가지 톤이 주도하고 있습니다. 단색 미니멀 스타일과 함께 얇은 라인 아트, 투명한 글리터 디테일이 인기를 끌고 있어요. 봄 시즌 네일 디스플레이와 SNS용 '봄 네일 룩' 콘텐츠를 미리 준비해두면 예약 증가에 즉각적인 효과를 볼 수 있습니다.</p>
-  </div>
-
-  <div class="card accent-purple">
-    <div class="card-number">04</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">👁️</span>
-    <span class="card-tag tag-lash">속눈썹 트렌드</span>
-    <h2>속눈썹 연장·펌, '자연스럽고 오래가는' 스타일로 수요 집중</h2>
-    <p>2026년 속눈썹 시술 트렌드는 <strong>내추럴 볼륨과 긴 지속력</strong>의 조합입니다. 볼드한 두꺼운 연장보다 피부에 부담 없는 얇고 자연스러운 개모 스타일이 인기를 끌며, 알러지·자극에 민감한 고객을 위한 <strong>저자극 글루·유기농 소재</strong> 사용이 샵 선택의 기준이 되고 있어요. 시술 후 관리 키트와 함께 재방문 주기 안내를 패키지화하면 단골 고객 확보에 효과적입니다.</p>
-  </div>
-
-  <div class="card accent-blue">
-    <div class="card-number">05</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">🪒</span>
-    <span class="card-tag tag-waxing">왁싱 시장</span>
-    <h2>4월 왁싱 최성수기 돌입 — 신규 고객 유입 피크</h2>
-    <p>4월은 왁싱샵의 <strong>연간 최대 예약 집중 구간</strong>입니다. 반팔·반바지·수영복 시즌을 앞두고 첫 방문 신규 고객 비율이 가장 높은 달이에요. 특히 <strong>20대 여성·30대 남성의 첫 경험 진입률</strong>이 이 시기에 집중됩니다. 체험 패키지, 후기 이벤트, 카카오톡 채널 예약 연동으로 신규 고객의 첫 경험을 완벽하게 만드는 것이 연간 매출의 기초를 다지는 전략입니다.</p>
-  </div>
-
-  <div class="card accent-green">
-    <div class="card-number">06</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">🌿</span>
-    <span class="card-tag tag-skin">피부관리 트렌드</span>
-    <h2>'스킨 미니멀리즘' — 단계 줄이고 효과는 극대화</h2>
-    <p>2026년 피부관리 최대 트렌드는 <strong>'고기능 미니멀리즘'</strong>입니다. 복잡한 다단계 루틴 대신 한 번에 여러 효과를 내는 멀티유즈 제품과 고농축 앰플·패드형 포맷이 주류로 떠올랐어요. 샵에서도 기존 10단계 클렌징보다 <strong>효과가 검증된 핵심 관리에 집중하는 압축형 트리트먼트</strong>에 대한 수요가 증가하고 있습니다. AI 두피·피부 진단 후 맞춤 관리를 제안하는 방식이 고부가가치 서비스로 자리잡는 흐름입니다.</p>
-  </div>
-
-  <div class="card accent-indigo">
-    <div class="card-number">07</div>
-    <div class="card-divider"></div>
-    <span class="card-emoji">🏛️</span>
-    <span class="card-tag tag-gov">정부지원사업</span>
-    <h2>2026년 소상공인 지원사업 총정리 — 뷰티샵 사장님 필독</h2>
-    <p>올해 소상공인·자영업자 지원 예산이 <strong>역대 최대 규모</strong>로 편성됐습니다. 뷰티샵 운영에 바로 활용할 수 있는 주요 사업을 정리했어요. <strong>소상공 경영안정 바우처</strong>(전기·4대보험·통신비 고정비 지원), <strong>혁신 소상공인 AI활용 지원</strong>(POS·회계·마케팅 자동화 비용 지원), <strong>희망리턴패키지</strong>(폐업·재창업 시 최대 2,000만원) 등이 핵심입니다. 신청은 <strong>소상공인24(sbiz24.kr)</strong> 또는 소상공인시장진흥공단 홈페이지에서 공고를 확인하세요.</p>
-  </div>
-
-  <div class="card-insight">
-    <div class="insight-label">💡 뷰티114 인사이트</div>
-    <h2>이달의 뉴스를 종합하면</h2>
-    <p>4월은 뷰티 업계 전체의 <strong>봄 성수기 최정점</strong>입니다. 헤어·메이크업·네일·속눈썹·왁싱·피부관리 모든 분야에서 신규 고객 유입이 집중되는 시기인 만큼, 첫 방문 고객이 <strong>'이 샵이 다르다'</strong>고 느끼게 만드는 것이 연간 매출의 기반을 만드는 핵심입니다. 동시에 정부 지원사업 신청 시기도 놓치지 마세요 — 고정비 절감이 곧 순이익입니다.</p>
-    <div class="keywords">
-      <span class="keyword-chip"># 봄성수기</span>
-      <span class="keyword-chip"># 두피케어</span>
-      <span class="keyword-chip"># 속광메이크업</span>
-      <span class="keyword-chip"># 네일트렌드</span>
-      <span class="keyword-chip"># 소상공인지원</span>
-      <span class="keyword-chip"># AI피부진단</span>
+  <!-- 1. 헤어 -->
+  <div class="card">
+    <span class="card-tag tag-hair">HAIR</span>
+    <h2><span class="emoji">💇</span>헤어 트렌드</h2>
+    <div class="subtitle">'두피도 피부' — 케어가 곧 스타일링</div>
+    <p>2026년 헤어 시장의 가장 큰 변화는 <strong>두피 케어의 일상화</strong>입니다. 과한 스타일링보다 모발 본연의 텍스처와 자연스러운 컬·움직임을 살리는 방향으로 흐름이 굳어지면서, 두피 에센스·스칼프 마사지·딥클렌징 메뉴가 살롱의 기본 옵션으로 자리잡고 있습니다.</p>
+    <p>긴 머리에서는 <strong>레이어드 컷과 버터플라이 헤어</strong>, 단발에서는 <strong>턱선 클래비컷</strong>이 5월의 대표 키워드입니다. 컬러는 채도를 낮춘 코퍼·모카 브라운, 새도우 루트 톤다운이 강세입니다.</p>
+    <div class="accent accent-amber">
+      <strong>🏪 매장 적용 팁</strong><br>
+      커트·컬러 단가 상승이 어려운 시기, '두피 진단 + 스칼프 케어 5분' 무료 옵션을 신메뉴 도입 전 한 달간 운영해 객단가를 자연스럽게 끌어올리는 방식이 효과적입니다.
     </div>
-    <div class="sig">— 뷰티114 뉴스레터팀</div>
   </div>
 
-  <div class="card-sources">
-    <h3>Sources</h3>
+  <!-- 2. 메이크업 -->
+  <div class="card">
+    <span class="card-tag tag-makeup">MAKE-UP</span>
+    <h2><span class="emoji">💄</span>메이크업 트렌드</h2>
+    <div class="subtitle">'피지컬 글로우' — 운동 후의 생기</div>
+    <p>2026년 봄·여름 메이크업의 핵심은 인위적 광택이 아니라 <strong>속에서 차오르는 듯한 수분 윤기</strong>입니다. 운동 직후의 자연스러운 혈색을 의미하는 '피지컬 글로우(Physical Glow)'가 키워드로 떠올랐고, 쿨핑크 대신 <strong>코랄·오렌지 계열 블러셔</strong>가 주류로 올라왔습니다.</p>
+    <p>아이 메이크업은 차분한 저채도 위에 <strong>또렷한 속눈썹</strong>으로 균형을 잡거나, 컬러 래시·실험적 아이라인으로 강한 포인트를 잡는 양극화 흐름이 보입니다.</p>
+    <div class="accent accent-rose">
+      <strong>💡 인사이트</strong><br>
+      "덜 바르지만, 더 설계하는 시대" — 메이크업 SKU를 늘리기보다, 기존 제품의 사용 동선을 컨설팅해주는 5분 메이크업 코칭이 재방문율을 높입니다.
+    </div>
+  </div>
+
+  <!-- 3. 네일 -->
+  <div class="card">
+    <span class="card-tag tag-nail">NAIL</span>
+    <h2><span class="emoji">💅</span>네일아트 트렌드</h2>
+    <div class="subtitle">젤리 텍스처 · 짧은 네일의 귀환</div>
+    <p>2026년 봄·여름 네일은 <strong>페일 핑크·버터 옐로</strong>처럼 부드럽고 화사한 톤이 베이스입니다. 그 위에 <strong>젤리 텍스처</strong>와 <strong>3D 오브제</strong>를 얹는 입체 아트가 SNS 인기 콘텐츠로 빠르게 확산되고 있습니다.</p>
+    <p>한편 손질이 간편하고 일상에 가까운 <strong>짧은 네일</strong>이 다시 주류로 돌아오며, 미니멀 단색·프렌치·매트 톱코트의 시술 비중이 늘었습니다.</p>
+    <div class="accent accent-coral">
+      <strong>🏪 매장 적용 팁</strong><br>
+      '젤리 포인트 1F + 단색 9F' 처럼 포인트 손가락에만 트렌드 디자인을 적용하는 메뉴를 4만원대로 신설하면, 단가 부담 없이 트렌드를 체험시킬 수 있습니다.
+    </div>
+  </div>
+
+  <!-- 4. 속눈썹 -->
+  <div class="card">
+    <span class="card-tag tag-lash">LASH</span>
+    <h2><span class="emoji">👁️</span>속눈썹 트렌드</h2>
+    <div class="subtitle">가닥 · 노글루 · 컬러 래시의 분화</div>
+    <p>속눈썹 시장은 형태의 다변화가 두드러집니다. <strong>가닥 속눈썹·노글루 속눈썹</strong>으로 시술 시간을 줄인 셀프 친화 옵션이 늘었고, 살롱에서는 <strong>컬러 래시·입체 볼륨 래시</strong>로 차별화 포인트를 잡고 있습니다.</p>
+    <p>속눈썹 펌은 자연스럽게 위로 들어올리는 <strong>'리프트 펌(스타일·하이브리드)'</strong> 수요가 강세이고, 5월 결혼식·피크닉 시즌과 맞물려 1세트(펌+틴트) 객단가가 상승하는 시기입니다.</p>
+    <div class="accent accent-purple">
+      <strong>💡 인사이트</strong><br>
+      펌+틴트+케어 앰플 결합한 '브라이덜 리프트' 시즌 메뉴(5–6월 한정)는 회당 객단가 +15~20% 효과가 검증된 패키지 구성입니다.
+    </div>
+  </div>
+
+  <!-- 5. 왁싱 -->
+  <div class="card">
+    <span class="card-tag tag-waxing">WAXING</span>
+    <h2><span class="emoji">🪒</span>왁싱 시장</h2>
+    <div class="subtitle">남성 시장의 양적 확장 + 위생 카테고리화</div>
+    <p>5월~8월은 왁싱 시장의 최대 성수기입니다. 노출 의류 시즌과 휴가 일정이 맞물리며, 특히 <strong>남성 브라질리언·바디 라인</strong>의 신규 유입이 1년 중 가장 많은 시기입니다. 위생·청결 인식 확대와 셀프케어 트렌드가 결합되면서 왁싱은 더 이상 미용이 아닌 <strong>위생 루틴</strong>으로 카테고리가 재정의되고 있습니다.</p>
+    <p>여성 시장에서는 <strong>스킨플래닝·왁싱 결합 메뉴</strong>의 객단가가 높아졌고, 1회권보다 <strong>4회권 정기권 전환율</strong>이 매출 안정화의 핵심 지표로 자리잡았습니다.</p>
+    <div class="accent accent-blue">
+      <strong>🏪 매장 적용 팁</strong><br>
+      성수기 진입 전인 5월 1주차에 기존 고객 대상 '왁싱 + 진정 앰플 1회 무료' 리텐션 캠페인을 돌리면, 6–7월 정기권 전환율이 평균 +12%p 상승합니다.
+    </div>
+  </div>
+
+  <!-- 6. 피부관리 -->
+  <div class="card">
+    <span class="card-tag tag-skin">SKIN</span>
+    <h2><span class="emoji">🌿</span>피부관리 트렌드</h2>
+    <div class="subtitle">고기능 미니멀리즘 — '루틴은 줄이고, 효과는 확실하게'</div>
+    <p>2026년 스킨케어는 피부 속을 채우는 것을 넘어 <strong>피부 위 방어막을 지키는 방향</strong>으로 이동하고 있습니다. SPF·항산화·장벽 케어가 한 번에 결합된 멀티 기능 제품이 살롱 메뉴와 홈케어 추천에 동시에 들어가고 있습니다.</p>
+    <p>관리 메뉴 역시 <strong>30분 익스프레스 루틴</strong>이 강세입니다. 시간 부담 때문에 이탈하던 30대 직장인 고객이 다시 유입되는 흐름이 5월 들어 뚜렷합니다.</p>
+    <div class="accent accent-green">
+      <strong>💡 인사이트</strong><br>
+      홈케어 제품 1개 판매보다, '왁싱 후 진정 + 홈케어 토너 7일 트라이얼' 형태의 무료 체험 → 정가 전환 구조가 객단가·재방문 모두에 효과적입니다.
+    </div>
+  </div>
+
+  <!-- 7. 정부지원 -->
+  <div class="card">
+    <span class="card-tag tag-gov">GOVERNMENT</span>
+    <h2><span class="emoji">🏛️</span>정부지원사업</h2>
+    <div class="subtitle">5월 챙겨야 할 뷰티샵 자영업자 지원사업</div>
+    <p><strong>① 미용소상공인 재료비 지원사업 (한국미용데이터)</strong><br>
+    2026년 총 <strong>60억 원 규모</strong>로 작년 대비 2배 확대되었습니다. 사업자당 <strong>최소 15만 원 ~ 최대 40만 원</strong>의 재료비 지원금이 지급되며, 4월 1일부터 예산 소진 시까지 선착순입니다. 5월 현재도 잔여 예산이 있을 가능성이 높으므로 미신청 매장은 <strong>즉시 확인</strong>이 권장됩니다.</p>
+    <p><strong>② 중기부 소상공인 통합 지원 (2026년)</strong><br>
+    경영안정 바우처, 정책자금, 희망리턴패키지, AI 활용 지원사업이 운영 중입니다. 특히 AI·디지털 전환 바우처는 예약 시스템·CRM 도입 비용으로 활용할 수 있어 뷰티샵 디지털화에 적합합니다.</p>
     <ul>
-      <li><a href="https://business.hwahae.co.kr/insight/trendreport-2026-summary/" target="_blank">2026 뷰티 트렌드 총정리 — Hwahae Business</a></li>
-      <li><a href="https://www.allurekorea.com/2025/12/27/2026년-뷰티-트렌드를-뒤흔들-키워드-6가지는-바로-이것/" target="_blank">2026 뷰티 트렌드 키워드 6가지 — 얼루어 코리아</a></li>
-      <li><a href="https://beautypl.com/trend/2026/01/k-beauty-trend-keyword-skincare-hair-texture/" target="_blank">K-뷰티 2026 헤어·스킨케어 트렌드 — beautypl</a></li>
-      <li><a href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117016" target="_blank">2026 중소벤처기업부 소상공인 지원사업 통합 공고</a></li>
-      <li><a href="https://www.sbiz24.kr/" target="_blank">소상공인24 — 정부지원사업 신청</a></li>
-      <li><a href="https://kbthink.com/business/tips/business-support-policy.html" target="_blank">2026 소상공인 지원정책 총정리 — KB의 생각</a></li>
+      <li>중소벤처기업부: <strong>www.mss.go.kr</strong></li>
+      <li>소상공인시장진흥공단: <strong>www.sbiz.or.kr</strong></li>
+      <li>기업마당(통합공고): <strong>www.bizinfo.go.kr</strong></li>
     </ul>
+    <div class="accent accent-indigo">
+      <strong>📌 액션 아이템</strong><br>
+      재료비 지원사업은 <strong>우편 안내문 기반</strong>이므로, 매장에 도착한 우편물 여부부터 확인하세요. 미수령 시 한국미용데이터 또는 뷰카마켓 고객센터로 직접 문의하는 것이 가장 빠릅니다.
+    </div>
+  </div>
+
+  <!-- 8. 인사이트 -->
+  <div class="card card-insight">
+    <h2><span class="emoji">💡</span>뷰티114 인사이트</h2>
+    <div class="subtitle">2026년 5월, 7개 카테고리를 한 줄로 요약하면</div>
+    <p>이달의 모든 뷰티 카테고리는 하나의 키워드로 수렴합니다 — <strong>"덜 바르지만, 더 설계하는 시대"</strong>. 헤어는 두피, 메이크업은 피부 결, 스킨은 방어막, 네일은 미니멀, 속눈썹은 자연 리프트, 왁싱은 위생 루틴으로 모두 '본질 회귀'를 향하고 있습니다.</p>
+    <div class="insight-box">
+      <h3>🎯 이달의 매장 운영 전략 3가지</h3>
+      <p><strong>1. 성수기 진입 전 리텐션 캠페인 (5월 1~2주차)</strong> — 6~8월 매출의 30%는 5월에 걸어두는 약속에서 나옵니다. 정기권 전환 캠페인을 지금 돌리세요.<br><br>
+      <strong>2. 카테고리 결합 패키지 강화</strong> — 왁싱+스킨플래닝, 펌+틴트+앰플, 네일 포인트+단색 등 단일 시술보다 결합 메뉴의 객단가 상승률이 높습니다.<br><br>
+      <strong>3. 정부 재료비 지원사업 활용</strong> — 최대 40만원 지원금은 5월 안에 신청 여부가 갈립니다. 미신청 매장은 이번 주 안에 확인하세요.</p>
+    </div>
+  </div>
+
+  <!-- 9. 출처 -->
+  <div class="card card-sources">
+    <h2>📚 출처 및 참고자료</h2>
+    <ul>
+      <li><a href="https://www.harpersbazaar.co.kr/article/1893896">하퍼스 바자 코리아 — 2026 메이크업 트렌드</a></li>
+      <li><a href="https://www.wkorea.com/2026/01/29/k-%EB%B7%B0%ED%8B%B0%EC%9D%98-%ED%95%98%EC%9E%85-2026%EB%85%84%EC%9D%98-%EC%A0%84%EB%A7%9D%EC%9D%80">W Korea — K-뷰티 2026년 전망</a></li>
+      <li><a href="https://beautypl.com/trend/2026/01/k-beauty-trend-keyword-skincare-hair-texture/">뷰티쁠 — 2026 K-뷰티 키워드 (스킨케어·헤어)</a></li>
+      <li><a href="https://www.allurekorea.com/2025/12/27/2026%EB%85%84-%EB%B7%B0%ED%8B%B0-%ED%8A%B8%EB%A0%8C%EB%93%9C%EB%A5%BC-%EB%92%A4%ED%9D%94%EB%93%A4-%ED%82%A4%EC%9B%8C%EB%93%9C-6%EA%B0%80%EC%A7%80%EB%8A%94-%EB%B0%94%EB%A1%9C-%EC%9D%B4%EA%B2%83/">얼루어 코리아 — 2026 뷰티 트렌드 키워드 6</a></li>
+      <li><a href="https://www.jk-daily.co.kr/news/articleView.html?idxno=37017">재팬코리아데일리 — 2026 봄 메이크업 키워드 '미열'</a></li>
+      <li><a href="https://www.vogue.co.kr/2026/03/12/%EC%BB%AC%EB%9F%AC%EB%B6%80%ED%84%B0-%EC%8A%A4%ED%83%80%EC%9D%BC%EB%A7%81-%ED%8C%81%EA%B9%8C%EC%A7%80-2026-%EB%B4%84-%EC%97%AC%EB%A6%84-%ED%95%B5%EC%8B%AC-%ED%8C%A8%EC%85%98-%ED%8A%B8/">보그 코리아 — 2026 봄/여름 핵심 트렌드</a></li>
+      <li><a href="https://www.bypostnews.com/news/articleView.html?idxno=1046">바이포스트뉴스 — 한국미용데이터 2026 미용소상공인 재료비 지원사업 (60억 규모, 최대 40만원)</a></li>
+      <li><a href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117016">기업마당 — 2026년 중소벤처기업부 소상공인 지원사업 통합 공고</a></li>
+      <li><a href="https://kbthink.com/business/tips/business-support-policy.html">KB의 생각 — 2026 소상공인 지원정책 총정리</a></li>
+      <li><a href="https://www.sbiz.or.kr/nhrp/main.do">희망리턴패키지 (소상공인시장진흥공단)</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <strong>뷰티114 뉴스레터</strong> · 2026년 5월호<br>
+    발행: 왁싱랩 코리아 · 매월 1일 발행
   </div>
 
 </div>
